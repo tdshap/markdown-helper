@@ -23,10 +23,10 @@ The ad configuration determines:
 2. What the slot's definition will be.
 
   Slot definition includes:
-
-    - render location
-    - sizes
-    - flags
+  
+   - render location
+   - sizes
+   - flags
 
 Ad configs are stored in [github](https://github.com/CondeNast?utf8=%E2%9C%93&q=atp-cns-config-&type=&language=) The structure and use are further documented in the [wiki](https://cnissues.atlassian.net/wiki/spaces/ATP/pages/38633524/The+CNS+Ads+Configuration).
 
