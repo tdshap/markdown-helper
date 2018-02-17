@@ -15,8 +15,7 @@ cd packages/monetization-proxy
 NODE_PORT=8081 npm start
 ```
 
-
-###Build Ad Config
+### Build Ad Config
 
 The ad configuration determines
 
