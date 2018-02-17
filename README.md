@@ -23,6 +23,7 @@ The ad configuration determines:
 2. What the slot's definition will be.
 
   Slot definition includes:
+
     - render location
     - sizes
     - flags
