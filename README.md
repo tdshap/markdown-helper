@@ -28,10 +28,10 @@ The ad configuration determines:
    - sizes
    - flags
 
-Ad configs are stored in [github](https://github.com/CondeNast?utf8=%E2%9C%93&q=atp-cns-config-&type=&language=) The structure and use are further documented in the [wiki](https://cnissues.atlassian.net/wiki/spaces/ATP/pages/38633524/The+CNS+Ads+Configuration).
+Ad configs are stored in [github](https://github.com/CondeNast?utf8=%E2%9C%93&q=atp-cns-config-&type=&language=). The structure and use of the config are further documented in the [wiki](https://cnissues.atlassian.net/wiki/spaces/ATP/pages/38633524/The+CNS+Ads+Configuration).
 
 
-global configuration : default ad setup and options. All brands inherit these features, and can be overwritten. @condenast/atp-cns-config-global
+global configuration : default ad setup and options. All brands inherit these features, and can be overwritten. [@condenast/atp-cns-config-global]()
 
 
 brand configuration : brand's specific ad layouts that deviate from the global @condenast/atp-cns-config-brand-name
