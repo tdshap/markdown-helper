@@ -17,7 +17,7 @@ NODE_PORT=8081 npm start
 
 ### Build Ad Config
 
-The ad configuration determines
+The ad configuration determines:
 
 1. Which ad slots are included on the page and
 2. What the slot's definition will be.
