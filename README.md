@@ -31,7 +31,7 @@ Slot level targeting: `ads.slot.targeting.added`
 
 
 ### PAGE TARGETING VALUES
-
+```
 env_device_type
 rdt_device_template
 ctx_template
@@ -59,10 +59,10 @@ mbid
 sqt
 sqt24hrs
 mbid
-
+```
 
 ### SLOT TARGETING VALUES
-
+```
 ctx_slot_instance
 ctx_slot_type
 ctx_slot_name
@@ -71,7 +71,6 @@ ctx_slot_manual_rn
 ctx_advertisers
 ctx_line_items
 ctx_creatives
-
-
+```
 
 
