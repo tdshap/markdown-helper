@@ -7,7 +7,8 @@ Targeting can be added for the whole `page` or for individual `slots`.
 
 Typical targeting can look like:
 
-```const targets = {
+```
+const targets = {
   env_device_type: device,
   rdt_device_template: `${device}_${template_type}`,
   ctx_template: template_type,
@@ -16,7 +17,8 @@ Typical targeting can look like:
   ctx_page_slug: slug,
   env_server: server,
   cnt_tags: tags
-};```
+};
+```
 
 The targets will get sent along as query parameters in the ad request.
 
