@@ -31,7 +31,6 @@ example page level targeting payload
 {
   targets: {
     key: val
-    key: val
   }
 }
 ```
@@ -44,7 +43,6 @@ example slot level targeting payload
   id: 'SLOT_ID',
   targets: {
     key: val
-    key: val
   }
 }
 ```
@@ -53,43 +51,46 @@ example slot level targeting payload
 
 ### PAGE TARGETING VALUES
 ```
-env_device_type
-rdt_device_template
-ctx_template
-ctx_page_channel
-ctx_page_sub_channel
-ctx_page_slug
-env_server
-cnt_tags
-env_device_type
-ctx_cns_version
-ctx_ses_soc
-ctx_ref_soc
-ctx_ref_url
-usr_bkt_eva
-usr_bkt_ses
-usr_bkt_pv
-ctx_ses_soc
-usr_pvc_bs
-usr_pvc_24hr
-usr_pvc_30d
-usr_svc_30d
-mbid
-sqt
-sqt24hrs
-mbid
+
+Markdown | Less | Pretty
+--- | --- | ---
+env_device_type | --- | ---
+rdt_device_template | --- | ---
+ctx_template | --- | ---
+ctx_page_channel | --- | ---
+ctx_page_sub_channel | --- | ---
+ctx_page_slug | --- | ---
+env_server | --- | ---
+cnt_tags | --- | ---
+env_device_type | --- | ---
+ctx_cns_version | --- | ---
+ctx_ses_soc | --- | ---
+ctx_ref_soc | --- | ---
+ctx_ref_url | --- | ---
+usr_bkt_eva | --- | ---
+usr_bkt_ses | --- | ---
+usr_bkt_pv | --- | ---
+ctx_ses_soc | --- | ---
+usr_pvc_bs | --- | ---
+usr_pvc_24hr | --- | ---
+usr_pvc_30d | --- | ---
+usr_svc_30d | --- | ---
+mbid | --- | ---
+sqt | --- | ---
+sqt24hrs | --- | ---
+mbid | --- | ---
 ```
 
 ### SLOT TARGETING VALUES
 ```
-ctx_slot_instance
-ctx_slot_type
-ctx_slot_name
-ctx_slot_rn
-ctx_slot_manual_rn
-ctx_advertisers
-ctx_line_items
-ctx_creatives
+ctx_slot_instance | --- | ---
+ctx_slot_type | --- | ---
+ctx_slot_name | --- | ---
+ctx_slot_rn | --- | ---
+ctx_slot_manual_rn | --- | ---
+ctx_advertisers | --- | ---
+ctx_line_items | --- | ---
+ctx_creatives | --- | ---
 ```
 See full description of values on the [wiki](https://cnissues.atlassian.net/wiki/spaces/ATP/pages/37060702/AdOps+Targeting+Guide)
 
