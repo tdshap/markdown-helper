@@ -50,7 +50,6 @@ example slot level targeting payload
 
 
 ### PAGE TARGETING VALUES
-```
 
 Markdown | Less | Pretty
 --- | --- | ---
@@ -79,10 +78,10 @@ mbid | --- | ---
 sqt | --- | ---
 sqt24hrs | --- | ---
 mbid | --- | ---
-```
+
 
 ### SLOT TARGETING VALUES
-```
+
 ctx_slot_instance | --- | ---
 ctx_slot_type | --- | ---
 ctx_slot_name | --- | ---
@@ -91,6 +90,6 @@ ctx_slot_manual_rn | --- | ---
 ctx_advertisers | --- | ---
 ctx_line_items | --- | ---
 ctx_creatives | --- | ---
-```
+
 See full description of values on the [wiki](https://cnissues.atlassian.net/wiki/spaces/ATP/pages/37060702/AdOps+Targeting+Guide)
 
