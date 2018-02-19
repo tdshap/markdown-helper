@@ -70,5 +70,5 @@ ctx_advertisers
 ctx_line_items
 ctx_creatives
 ```
-See full description of values on the (wiki)[https://cnissues.atlassian.net/wiki/spaces/ATP/pages/37060702/AdOps+Targeting+Guide]
+See full description of values on the [wiki](https://cnissues.atlassian.net/wiki/spaces/ATP/pages/37060702/AdOps+Targeting+Guide)
 
