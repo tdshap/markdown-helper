@@ -29,7 +29,10 @@ Page level targeting: `ads.page.targeting.added`
 example page level targeting payload
 ```
 {
-  targets: {}
+  targets: {
+    key: val
+    key: val
+  }
 }
 ```
 
@@ -39,7 +42,10 @@ example slot level targeting payload
 ```
 {
   id: 'SLOT_ID',
-  targets: {}
+  targets: {
+    key: val
+    key: val
+  }
 }
 ```
 
