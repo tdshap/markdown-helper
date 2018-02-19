@@ -82,6 +82,8 @@ mbid | --- | ---
 
 ### SLOT TARGETING VALUES
 
+Markdown | Less | Pretty
+--- | --- | ---
 ctx_slot_instance | --- | ---
 ctx_slot_type | --- | ---
 ctx_slot_name | --- | ---
