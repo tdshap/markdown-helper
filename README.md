@@ -26,7 +26,22 @@ The targets will get sent along as query parameters in the ad request.
 
 Page level targeting: `ads.page.targeting.added`
 
+example page level targeting payload
+```
+{
+  targets: {}
+}
+```
+
 Slot level targeting: `ads.slot.targeting.added`
+
+example slot level targeting payload
+```
+{
+  id: 'SLOT_ID',
+  targets: {}
+}
+```
 
 
 
