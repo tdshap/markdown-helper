@@ -76,18 +76,17 @@ usr_svc_30d | Sessions in the last 30 days | 123
 mbid | Media buy - Usually added to links in newsletters and other external traffic drivers to identify the traffic or campaign source. | ---
 sqt | --- | ---
 sqt24hrs | --- | ---
-mbid | --- | ---
 
 
 ### SLOT TARGETING VALUES
 
 Slot Key | Possible values | Description
 --- | --- | ---
-ctx_slot_instance | The instance name of the slot | inline_video_0
-ctx_slot_type | The slot-type as described in the config | ---
-ctx_slot_name | slot name + slot instance number | ---
-ctx_slot_rn | Number of times of a slot's in-view refreshed during a session or the request number | ---
-ctx_slot_manual_rn | Number of times of a slot's programmatic refreshed by api call | ---
+ctx_slot_instance | The instance name of the slot | 0
+ctx_slot_type | The slot-type as described in the config | inline_video
+ctx_slot_name | slot name + slot instance number | inline_video_0
+ctx_slot_rn | Number of times of a slot's in-view refreshed during a session or the request number | 1
+ctx_slot_manual_rn | Number of times of a slot's programmatic refreshed by api call | 1
 ctx_advertisers | A list of advertiser IDs that were on the page at the time of this ad request | ---
 ctx_line_items |  A list of line item IDs that were on the page at the time of this ad request | ---
 ctx_creatives | A list of creative IDs that were on the page at the time of this ad request | ---
