@@ -68,7 +68,6 @@ ctx_ref_url | URL the user came from or blank if its a new browser session | ---
 usr_bkt_eva | A bucket id for ever (until the user clears their cookies)  1-100 | ---
 usr_bkt_ses | A bucket id per session 1-100 N/A | ---
 usr_bkt_pv | A bucket id per page view 1-100 | ---
-
 USER DATA | --- | ---
 usr_pvc_bs | Page views in current browser session | 123
 usr_pvc_24hr | Page views in the last 24 hrs | 123
