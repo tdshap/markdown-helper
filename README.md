@@ -139,3 +139,4 @@ npm start
  Now open a browser and navigate to `localhost:8001` (or the variable you placed in `ESI_TARGET`). Et voila! 
  
  
+ For questions or suggestions, find us in the #ads-next slack channel
