@@ -60,12 +60,11 @@ This builds `head` and `footer` in 3 forms:
 3. Script tag minified - esi mode - `head` `footer`
 
 #### Build config
-You will need a Github token, and your account must have access to the brand config repo you are trying to build. If you do not have access, contact us in the slack channel #ads-support. 
-
 ```bash
 GITHUB_TOKEN=$GITHUBTOKEN npm run config brand-name environment
 ```
-`$GITHUBTOKEN` - your github token or an environment variable that points to your github token
+
+`$GITHUBTOKEN` - your github token or an environment variable that points to your github token. Your account must have access to the brand config repo you are trying to build. If you do not have access, contact us in the slack channel #ads-support. 
 
 `brand-name` - must match the brand’s name in their github config repo [atp-cns-config-*brand-name*](https://github.com/CondeNast?utf8=%E2%9C%93&q=atp-cns-config-&type=&language=)
 
