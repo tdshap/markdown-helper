@@ -18,7 +18,7 @@ npm run bootstrap # npm links packages that reference each other together
 Now you have the packages within the repo installed and linked!
 
 ## Autopilot Setup
-To run fast-ads, you will need an autopilot-*brand* running in another terminal. For this example, we will use `autopilot-tny`.
+To run fast-ads, you will need an autopilot-*brand* running in another terminal. For this example we will use `autopilot-tny`.
 
 Open and run TNY in terminal new tab 
 ```bash
