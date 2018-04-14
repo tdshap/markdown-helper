@@ -1,4 +1,4 @@
-# How to Setup Fast-ads
+# How to Setup Fast-ads for Local Development
 
 Welcome to fast ads! Here’s a quick overview on the setup, and how to get started developing locally.
 
@@ -135,4 +135,7 @@ Go back to the terminal with the esi-server, and start the server now that we ha
 ```bash
 npm start
 ```
-
+ 
+ Now open a browser and navigate to `localhost:8001` (or the variable you placed in `ESI_TARGET`). Et voila! 
+ 
+ 
