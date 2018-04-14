@@ -54,9 +54,9 @@ env:
 
 `NODE_PORT` and `ESI_TARGET` - These two ports should match, and will be the URL where the autopilot app + filled esi scripts will serve.
 
-Now we need to specify the esi tag path to the file it should load. 
+Nest, we need to specify the ESI tag path to the file it should load. 
 
-Fast ads has three essential files `head` `footer` and `config`. All 3 are build to the `dist/` folder. `head` and `footer` don't change per brand, but the config file will differ per brand and environment: `dist/brand/environment/config.js`.
+Fast ads has three essential files `head` `footer` and `config`. All three are built to the `dist/` folder. `head` and `footer` don't change per brand, but the config file will differ per brand and environment: `dist/brand/environment/config.js`.
 
 ```yaml
 # Ads
