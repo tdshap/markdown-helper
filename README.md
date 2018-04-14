@@ -1,9 +1,9 @@
 # How To Setup fast-ads
 
-Welcome to fast ads! Here’s a quick overview on the setup and how to get started developing locally.
+Welcome to fast ads! Here’s a quick overview on the setup, and how to get started developing locally.
 
-## Ads Repo
-Download [Ads](https://github.com/CondeNast/ads). `Ads` is a mono repo that contains multiple npm modules that are used together. The repo uses lerna to manage internal packages. See the [readme](https://github.com/CondeNast/ads/blob/master/readme.md) for more details.
+## Download Ads Repo
+[Ads](https://github.com/CondeNast/ads) is a mono repo that contains multiple npm modules that are used together. The repo uses lerna to manage internal packages. See the [readme](https://github.com/CondeNast/ads/blob/master/readme.md) for more details.
 
 ```bash
 git clone git@github.com:CondeNast/ads.git # for ssh 
@@ -41,14 +41,53 @@ npm run dev
 When running dev mode, you will see TNY load at `localhost:8080`.
 
 ## ESI Server
-Fast-ads loads it’s scripts through ESI tags pulled in from fastly. Since there is no fastly when developing locally, we have built an ESI server that proxies a port and replaces ESI tags with files. The ports it proxies and the files are all configurable from the `defaults.yaml` file in the root. 
+Fast-ads loads it’s scripts through ESI tags pulled in from fastly. Since there is no fastly when developing locally, we have built an ESI server that proxies a port and replaces ESI tags with local files. The ports it proxies to/from and the files it servers are all configurable from the `defaults.yaml` file in the [root](https://github.com/CondeNast/ads/blob/master/packages/esi-server/defaults.yaml). 
 
-The esi server’s default.yaml file needs to be updated with a few things: 
-PROXY_TARGET: 'http://localhost:8081' 
-The proxy target field needs to be updated with the URL it will proxy from -- this will be where autopilot-*brand* normally outputs
-This file is where you specify what files you want the proxy to serve for specific esi tags. If you are missing any files specified in default.yaml, the esi server will error out. So we need to build these files. 
+#### default.yaml
+```yaml
+env:
+  NODE_PORT: 8001
+  PROXY_TARGET: 'http://localhost:8080'
+  ESI_TARGET: 'http://localhost:8001'
+```
+`PROXY_TARGET` is where the autopilot brand is running. You will NOT see ads load on this port until the ESI tags are replaced with scripts. 
+`NODE_PORT` and `ESI_TARGET` should match ports. This is the where you will see the autopilot app load ads scripts.
 
-Now, let’s build the files
+Now we need to specify the esi tag path to the file it should load. 
+
+Fast ads has three essential files 1) head.js 2) footer.js and 3) config.js all 3 are build to the `dist/` folder. Head and footer don't change per brand, but the config file will differ per brand and environment: `dist/brand/environment/config.js`
+
+```yaml
+# Ads
+- uri: "/cns/head.js"
+  behavior: serveFile
+  filePath: "../fast-ads/dist/head.js"
+  contentType: "text/javascript"
+
+- uri: "/cns/head.min.js"
+  behavior: serveFile
+  filePath: "../fast-ads/dist/head.js"
+  contentType: "text/javascript"
+
+- uri: "/cns/footer.js"
+  behavior: serveFile
+  filePath: "../fast-ads/dist/footer.js"
+  contentType: "text/javascript"
+
+- uri: "/cns/footer.min.js"
+  behavior: serveFile
+  filePath: "../fast-ads/dist/footer.js"
+  contentType: "text/javascript"
+
+- uri: "/cns/config.js"
+  behavior: serveFile
+  filePath: "../fast-ads/dist/the-new-yorker/production/config.js"
+  contentType: "text/javascript"
+```
+
+If any file paths specified here do not exist on your local machine, the esi server will error out. So now, let’s build these files.
+
+## Fast Ads
 Open a new terminal window and change to the fast-ads directory
 cd ../fast-ads/
 
