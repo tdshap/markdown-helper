@@ -1,101 +1,57 @@
-# Targeting
+HOW TO SET UP FAST ADS WITH A BRAND
 
-Targeting values get passed in each ad call, and help the ad server choose the
-most appropriate ad for the user/page/context.
+Welcome to fast ads! Here’s a quick overview on the setup and how to get started developing locally.
 
-Targeting can be added for the whole `page` or for individual `slots`.
+Download the ads repo 
+Github: https://github.com/CondeNast/ads
+SSH: git@github.com:CondeNast/ads.git
+HTTPS: https://github.com/CondeNast/ads.git
 
-Typical targeting can look like:
+Ads is a mono repo that contains multiple npm modules that are used together. The repo uses lerna to manage the internal packages
+cd ads/
+nvm use # or nvm install if you're missing node 8
+npm install # install devDepenencies
+npm run bootstrap # npm links packages that reference each other together
 
-```
-const targets = {
-  env_device_type: device,
-  rdt_device_template: `${device}_${template_type}`,
-  ctx_template: template_type,
-  ctx_page_channel: channel,
-  ctx_page_sub_channel: sub_channel,
-  ctx_page_slug: slug,
-  env_server: server,
-  cnt_tags: tags
-};
-```
+Now you have the packages within the repo installed and linked!
 
-The targets will get sent along as query parameters in the ad request.
+To run fast-ads, you will need to have an autopilot-*brand* running in another terminal. 
 
-## Events
+Fast-ads loads it’s scripts through ESI tags pulled in from fastly. Since there is no fastly when developing locally, we have built an ESI server.
 
-Page level targeting: `ads.page.targeting.added`
+The esi server’s default.yaml file needs to be updated with a few things: 
+PROXY_TARGET: 'http://localhost:8081' 
+The proxy target field needs to be updated with the URL it will proxy from -- this will be where autopilot-*brand* normally outputs
+This file is where you specify what files you want the proxy to serve for specific esi tags. If you are missing any files specified in default.yaml, the esi server will error out. So we need to build these files. 
 
-example page level targeting payload
-```
-{
-  targets: {
-    key: val
-  }
-}
-```
+Now, let’s build the files
+Open a new terminal window and change to the fast-ads directory
+cd ../fast-ads/
 
-Slot level targeting: `ads.slot.targeting.added`
+Run the build script for the files
+npm run build // for one build 
+OR
+ npm run dev // if you want to build on files changed
 
-example slot level targeting payload
-```
-{
-  id: 'SLOT_ID',
-  targets: {
-    key: val
-  }
-}
-```
+Run the build script for the config
+GITHUB_TOKEN=$GITHUBTOKEN npm run config brand-name environment
 
+You will need to insert your github token as an environment variable or provide in the token in place of $GITHUBTOKEN
+“brand-name” must match the brand’s name in their github config repo. atp-cns-config-*brand-name*
+“environment” must match a branch in that github repo. 
 
+Once those files are created, they will be placed into ads/packages/fast-ads/dist/*. Make sure your default.yaml is pointing to the right files in that folder. Pay extra attention to the config file if you are switching brands.
 
-### PAGE TARGETING VALUES
+Go back to the terminal with the esi-server and start the server now that we have all of our files.
+npm start
 
-Page Key | Description | Possible values
---- | --- | ---
-env_device_type | Top level category of device  desktop, tablet, mobile | ---
-rdt_device_template | --- | ---
-ctx_template | The template used to display the page article, index, homepage | ---
-ctx_page_channel | Top level content category | ---
-ctx_page_sub_channel | Secondary content category level  mens | ---
-ctx_page_slug | Slug of the page | ---
-env_server | Deployment server environment ci, staging, production | ---
-cnt_tags | Minimal set of targeting values regarding the page content (edit-supplied via the CMS) | ---
-ctx_cns_version | --- | ---
-ctx_ses_soc | A social network name a user came from. This value is stored across the session. | ---
-ctx_ref_soc | A social network name a user came from. | ---
-ctx_ref_url | URL the user came from or blank if its a new browser session | ---
-usr_bkt_eva | A bucket id for ever (until the user clears their cookies)  1-100 | ---
-usr_bkt_ses | A bucket id per session 1-100 N/A | ---
-usr_bkt_pv | A bucket id per page view 1-100 | ---
-USER DATA | --- | ---
-usr_pvc_bs | Page views in current browser session | 123
-usr_pvc_24hr | Page views in the last 24 hrs | 123
-usr_pvc_30d | Page views in the last 30 days | 123
-usr_svc_30d | Sessions in the last 30 days | 123
-mbid | Media buy - Usually added to links in newsletters and other external traffic drivers to identify the traffic or campaign source. | ---
-sqt | --- | ---
-sqt24hrs | --- | ---
+This will proxy the content serving at PROXY_TARGET  to ESI_TARGET . Go to the url specified as the ESI_TARGET. You should see the original content, plus the ESI tags on the new URL.
 
+If you are starting work on a new brand that does not have ESI tags, you will need to add 3 scripts: 
 
-### SLOT TARGETING VALUES
-
-Slot Key | Possible values | Description
---- | --- | ---
-ctx_slot_instance | The instance name of the slot | 0
-ctx_slot_type | The slot-type as described in the config | inline_video
-ctx_slot_name | slot name + slot instance number | inline_video_0
-ctx_slot_rn | Number of times of a slot's in-view refreshed during a session or the request number | 1
-ctx_slot_manual_rn | Number of times of a slot's programmatic refreshed by api call | 1
-ctx_advertisers | A list of advertiser IDs that were on the page at the time of this ad request | ---
-ctx_line_items |  A list of line item IDs that were on the page at the time of this ad request | ---
-ctx_creatives | A list of creative IDs that were on the page at the time of this ad request | ---
+In the brand head: 
 
 
 
 
-
-
-
-See full description of values on the [wiki](https://cnissues.atlassian.net/wiki/spaces/ATP/pages/37060702/AdOps+Targeting+Guide)
-
+Fast ads
