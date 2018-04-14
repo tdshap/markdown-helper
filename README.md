@@ -1,23 +1,47 @@
-HOW TO SET UP FAST ADS WITH A BRAND
+# How To Setup fast-ads
 
 Welcome to fast ads! Here’s a quick overview on the setup and how to get started developing locally.
 
-Download the ads repo 
-Github: https://github.com/CondeNast/ads
-SSH: git@github.com:CondeNast/ads.git
-HTTPS: https://github.com/CondeNast/ads.git
+## Ads Repo
+Download [Ads](https://github.com/CondeNast/ads). `Ads` is a mono repo that contains multiple npm modules that are used together. The repo uses lerna to manage internal packages. See the [readme](https://github.com/CondeNast/ads/blob/master/readme.md) for more details.
 
-Ads is a mono repo that contains multiple npm modules that are used together. The repo uses lerna to manage the internal packages
+```bash
+git clone git@github.com:CondeNast/ads.git # for ssh 
+# or 
+git clone https://github.com/CondeNast/ads.git # https
 cd ads/
 nvm use # or nvm install if you're missing node 8
 npm install # install devDepenencies
 npm run bootstrap # npm links packages that reference each other together
+```
 
 Now you have the packages within the repo installed and linked!
 
-To run fast-ads, you will need to have an autopilot-*brand* running in another terminal. 
+## Autopilot Setup
+To run fast-ads, you will need an autopilot-*brand* running in another terminal. For this example, we will use `autopilot-tny`.
 
-Fast-ads loads it’s scripts through ESI tags pulled in from fastly. Since there is no fastly when developing locally, we have built an ESI server.
+Open and run TNY in terminal new tab 
+```bash
+cmt + t # new tab
+
+cd ../ # change out of ads repo 
+
+# clone tny
+git clone git@github.com:CondeNast/autopilot-tny.git # for ssh
+# or
+git clone https://github.com/CondeNast/autopilot-tny.git # for https
+
+cd autopilot-tny # should be on the default branch 'develop'
+
+npm i 
+
+npm run dev
+```
+
+When running dev mode, you will see TNY load at `localhost:8080`.
+
+## ESI Server
+Fast-ads loads it’s scripts through ESI tags pulled in from fastly. Since there is no fastly when developing locally, we have built an ESI server that proxies a port and replaces ESI tags with files. The ports it proxies and the files are all configurable from the `defaults.yaml` file in the root. 
 
 The esi server’s default.yaml file needs to be updated with a few things: 
 PROXY_TARGET: 'http://localhost:8081' 
