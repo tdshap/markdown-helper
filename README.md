@@ -122,7 +122,9 @@ You will need a Github token, and your account must have access to the brand con
 GITHUB_TOKEN=$GITHUBTOKEN npm run config brand-name environment
 ```
 `$GITHUBTOKEN` - your github token or an environment variable that points to your github token
+
 `brand-name` - must match the brand’s name in their github config repo. [atp-cns-config-*brand-name*](https://github.com/CondeNast?utf8=%E2%9C%93&q=atp-cns-config-&type=&language=)
+
 `environment` - must match a branch in the github repo. 
 
 Once those files are created, they will be placed into `ads/packages/fast-ads/dist/*`. Make sure your `default.yaml` is pointing to the right files in that folder. Pay extra attention to the config file if you are switching brands.
