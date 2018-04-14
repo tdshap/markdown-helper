@@ -73,7 +73,7 @@ GITHUB_TOKEN=$GITHUBTOKEN npm run config brand-name environment
 Once those files are created, they will be placed into `ads/packages/fast-ads/dist/*`. 
 
 ## ESI Server
-Fast-ads loads it’s scripts through ESI tags pulled in from fastly. Since there is no fastly when developing locally, we built an ESI server that proxies a port, and replaces ESI tags with local files. The ports it proxies to/from and the files it serves are all configurable from the `defaults.yaml` file in the [root](https://github.com/CondeNast/ads/blob/master/packages/esi-server/defaults.yaml). 
+Fast-ads loads its scripts through ESI tags pulled in from fastly. Since there is no fastly when developing locally, we built an ESI server that proxies a port, and replaces ESI tags with local files. The ports it proxies to/from and the files it serves are all configurable from the `defaults.yaml` [file](https://github.com/CondeNast/ads/blob/master/packages/esi-server/defaults.yaml). 
 
 #### default.yaml
 ```yaml
@@ -118,7 +118,7 @@ Fast ads has three essential files `head` `footer` and `config`. All three are b
   contentType: "text/javascript"
 ```
 
-Once those files are specified, we can start the proxy server: 
+Once those files are specified, we can start the ESI server: 
 
 ```bash
 npm start
