@@ -123,7 +123,7 @@ GITHUB_TOKEN=$GITHUBTOKEN npm run config brand-name environment
 ```
 `$GITHUBTOKEN` - your github token or an environment variable that points to your github token
 
-`brand-name` - must match the brand’s name in their github config repo. [atp-cns-config-*brand-name*](https://github.com/CondeNast?utf8=%E2%9C%93&q=atp-cns-config-&type=&language=)
+`brand-name` - must match the brand’s name in their github config repo [atp-cns-config-*brand-name*](https://github.com/CondeNast?utf8=%E2%9C%93&q=atp-cns-config-&type=&language=)
 
 `environment` - must match a branch in the github repo. 
 
